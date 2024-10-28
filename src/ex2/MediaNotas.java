@@ -1,22 +1,20 @@
 package ex2;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class MediaNotas {
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("#.0");
 
-        System.out.println("Digita a nota 1: ");
-        float nota1 = read.nextFloat();
-        System.out.println("Digita a nota 2: ");
-        float nota2 = read.nextFloat();
-        System.out.println("Digita a nota 3: ");
-        float nota3 = read.nextFloat();
-        System.out.println("Digita a nota 4: ");
-        float nota4 = read.nextFloat();
+        float media = 0;
+        for (int i = 0; i < 4; i++) {
+            System.out.println("Digite a nota " + (i + 1) + ":");
+            float nota = read.nextFloat();
+            media += nota;
+        }
 
-        float media = (nota1 + nota2 + nota3 + nota4) / 4;
-
-        System.out.println("Média: " + media);
+        System.out.println("Média: " + df.format(media / 4));
     }
 }
